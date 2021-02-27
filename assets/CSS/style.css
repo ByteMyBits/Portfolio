@@ -7,6 +7,10 @@
     --col1-min-width: 18%;
 }
 
+.html {
+    font-size: 10px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -56,27 +60,26 @@ nav {
 
 .hero-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 70px;
 }
 
-.hero-container>:first-child {
+.hero-container div {
+    padding: 0 20px;
+}
+
+/* .hero-container>:first-child {
     padding-right: 40px;
 }
 
 .hero-container>:last-child {
     padding-left: 20px;
-}
+} */
 
 .hero__hello {
     font-size: 60px;
-}
-
-@media only screen and (max-width: 800px) {
-    .hero__hello {
-        font-size: 30px;
-    }
 }
 
 .hero__jack {
@@ -213,11 +216,6 @@ img:hover, img:hover~.portfolio-label {
     /* transition-delay: 100ms; */
 }
 
-/* .portfolio-box {
-    flex: 50%;
-    max-width: 100%;
-} */
-
 .get-in-touch__nav {
     padding-left: 2%;
     border-left: solid 4px var(--neon-green);
@@ -353,6 +351,156 @@ img:hover, img:hover~.portfolio-label {
     /* animation-delay: 6s; */
     transform-origin: center;
     transform-box: fill-box;
+}
+
+/* Media queries */
+
+/* using non-fixed values would make this so much easier */
+
+@media only screen and (max-width: 1350px) {
+    .hero__jack {
+        margin-top: 20px;
+    }
+    /* About me */
+    .about-me {
+        flex-direction: column;
+    }
+    .about-me__header {
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 3px solid var(--pale-red);
+        font-size: 56px;
+    }
+    .about-me__header svg, .about-me__header h2 {
+        margin: 0 20px;
+        align-self: center;
+    }
+    .about-me__copy {
+        border: none;
+        padding: 0;
+    }
+    /* End of About me */
+    /* My work */
+    .my-work {
+        flex-direction: column;
+    }
+    .my-work__header {
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 3px solid var(--royal-purple);
+        font-size: 56px;
+    }
+    .my-work__header svg, .my-work__header h2 {
+        margin: 0 20px;
+        align-self: center;
+    }
+    .my-work__portfolio {
+        border: none;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .site-flex-container {
+        margin: 20px;
+    }
+    header {
+        padding: 0 20px;
+        flex: 0
+    }
+    .logo {
+        padding: 0 10px;
+    }
+    li {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+    header svg {
+        width: 40px;
+        height: 40px;
+    }
+    .hero-container div {
+        padding: 0 10px
+    }
+    .hero-container svg {
+        width: 140px;
+        height: 140px;
+    }
+    /* .hero__animation {
+        padding-right: 20px;
+    } */
+    .hero__hello {
+        font-size: 40px;
+    }
+    .hero__jack {
+        font-size: 80px;
+    }
+    .about-me__header h2 {
+        font-size: 34px;
+        align-self: center;
+        margin: 0 10px;
+    }
+    .about-me__header svg {
+        height: 70px;
+        width: 70px;
+        margin: 0 15px;
+        line-height: 1.4;
+    }
+    .about-me__copy {
+        padding: 0 10px;
+        margin: 0 6px;
+    }
+    p {
+        font-size: 15px;
+        justify-content: center;
+    }
+    .my-work__header h2 {
+        font-size: 34px;
+        align-self: center;
+        margin: 0 10px;
+    }
+    .my-work__header svg {
+        height: 90px;
+        width: 90px;
+        margin: 0 15px;
+        line-height: 1.4;
+    }
+    .my-work__portfolio {
+        /* padding: 0 5px; */
+    }
+    .portfolio-flex-item {
+        height: 250px;
+        padding: 8px;
+        flex-basis: 100%;
+    }
+    /* this seems very inefficient, must be a better way? */
+    .portfolio-flex-item:first-child {
+        height: 300px;
+        padding: 8px;
+        flex-basis: 100%;
+    }
+    img:hover, img:hover~.portfolio-label {
+        opacity: 100%;
+        border: solid 4px var(--royal-purple);
+        transform: scale(1.02);
+    }
+    .portfolio-label {
+        background-color: var(--royal-purple);
+        display: inline-block;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 0 10px 10px 0;
+        position: relative;
+        top: -25%;
+        left: -0.5%;
+        opacity: 0%;
+        pointer-events: none;
+        /* transition-delay: 100ms; */
+    }
 }
 
 @keyframes eyeMove {
