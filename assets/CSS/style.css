@@ -1,0 +1,470 @@
+:root {
+    --site-background-color: #33353E;
+    --font-color: white;
+    --pale-red: #DC6767;
+    --royal-purple: #7A73FF;
+    --neon-green: #72FC8E;
+    --col1-min-width: 18%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--site-background-color);
+    color: var(--font-color);
+}
+
+a {
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+a, p {
+    color: var(--font-color);
+    display: inline;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+}
+
+li {
+    padding: 0 20px;
+    font-weight: bold;
+}
+
+.site-flex-container {
+    margin: 40px;
+    /* percentage? */
+    max-width: 1400px;
+}
+
+nav {
+    display: flex
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.hero-container>:first-child {
+    padding-right: 40px;
+}
+
+.hero-container>:last-child {
+    padding-left: 20px;
+}
+
+.hero__hello {
+    font-size: 60px;
+}
+
+@media only screen and (max-width: 800px) {
+    .hero__hello {
+        font-size: 30px;
+    }
+}
+
+.hero__jack {
+    font-size: 120px;
+    word-spacing: -15px;
+}
+
+.hero__jack {
+    /* height and width make animation look nicer but destory the flow/formatting */
+    /* height: 400px;
+    width: 800px; */
+    /* background: rgb(220, 103, 103);
+    background: radial-gradient(circle, rgba(220, 103, 103, 1) 10%, rgba(107, 107, 255, 1) 36%, rgba(114, 252, 142, 1) 70%, rgba(255, 216, 110, 1) 97%); */
+    background: rgb(220, 103, 103);
+    background: linear-gradient(60deg, rgba(220, 103, 103, 1) 10%, rgba(107, 107, 255, 1) 40%, rgba(114, 252, 142, 1) 70%, rgba(255, 216, 110, 1) 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    letter-spacing: -5px;
+    /* animation: rotate 40s infinite; */
+}
+
+.about-me {
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-me svg {
+    align-self: center;
+    margin-top: 15px;
+    overflow: visible;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 20px;
+}
+
+.about-me__header {
+    min-width: var(--col1-min-width);
+    padding-right: 2%;
+    /* line-height: 1.6; */
+    color: var(--pale-red);
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.about-me__copy {
+    padding-left: 2%;
+    border-left: solid 4px var(--pale-red);
+}
+
+.my-work {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.my-work-animation {
+    align-self: center;
+    margin-top: 15px;
+}
+
+.my-work__header {
+    min-width: var(--col1-min-width);
+    padding-right: 2%;
+    /* line-height: 1.6; */
+    color: var(--royal-purple);
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* .my-work img {
+    border-radius: 5%;
+    width: 49%;
+    margin: 2px;
+} */
+
+.my-work__portfolio {
+    padding-left: 2%;
+    border-left: solid 4px var(--royal-purple);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.portfolio-flex-item {
+    height: 200px;
+    padding: 8px;
+    flex-basis: 50%;
+}
+
+.portfolio-flex-item:first-child {
+    height: 400px;
+    flex-basis: 100%;
+    margin-top: 0;
+}
+
+img {
+    /* tip: use pixels for border-radius, using % with rectangles looks scuffed */
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 80%;
+}
+
+/* the tilda " ~ " means it affects its sibling... hovering over img is affecting the label as well */
+
+img:hover, img:hover~.portfolio-label {
+    opacity: 100%;
+    border: solid 4px var(--royal-purple);
+    transform: scale(1.02);
+}
+
+.portfolio-label {
+    background-color: var(--royal-purple);
+    display: inline-block;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    top: -40%;
+    left: -0.5%;
+    opacity: 0%;
+    pointer-events: none;
+    /* transition-delay: 100ms; */
+}
+
+/* .portfolio-box {
+    flex: 50%;
+    max-width: 100%;
+} */
+
+.get-in-touch__nav {
+    padding-left: 2%;
+    border-left: solid 4px var(--neon-green);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.my-work__portfolio>a {
+    /* padding: 10px; */
+}
+
+.portfolio-1 {
+    /* flex-basis: 100%;
+    height: 400px; */
+}
+
+.get-in-touch {
+    margin-top: 70px;
+    display: flex;
+}
+
+.get-in-touch__header {
+    min-width: var(--col1-min-width);
+    padding-right: 2%;
+    line-height: 1.6;
+    color: var(--neon-green);
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* translate and transition times not working... */
+
+#nav-about:hover {
+    /* transition: transform 250ms; */
+    /* opacity: 0; */
+    color: var(--pale-red);
+    transform: scale(1.1);
+    /* adding a border shifts the link, also why does border-radius sometimes give weird results on non-div elements */
+    /* border: solid 1px var(--pale-red);
+    padding: 3px 0px 3px 3px;
+    border-radius: 25%;
+    transition: transform 250ms; */
+}
+
+#nav-work:hover {
+    color: var(--royal-purple);
+    transform: translateY(-10px);
+}
+
+#nav-contact:hover {
+    transform: translateY(-10px);
+    color: var(--neon-green);
+    transform: translateY(-10px);
+}
+
+/* for this to work either the gradient needs to wrap around smoothly, or be big enough to not notice the hard edges */
+
+@keyframes rotate {
+    50% {
+        background-position: -800px 400px;
+    }
+}
+
+.about-me-animation {
+    overflow: visible;
+}
+
+#face {
+    animation: faceMove 4s infinite;
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+#hand {
+    animation: handMove 4s infinite;
+    transform-origin: bottom right;
+    transform-box: fill-box;
+}
+
+#eye {
+    animation: eyeMove 4s infinite;
+    /* Without these two properties below, the transformation doesn't apply relative to itself */
+    /* It applies somewhere else, (centre of the SVG possibly) so for example without these */
+    /* the scale transform to make the eye wink also made it translate (move) */
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#heartpath {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: heart 3s infinite;
+}
+
+#speech-dot-3 {
+    animation: contactAnimate 4s infinite;
+    transform-origin: bottom right;
+    transform-box: fill-box;
+}
+
+#speech-dot-2 {
+    animation: contactAnimate 4s infinite;
+    animation-delay: 0.3s;
+    transform-origin: bottom right;
+    transform-box: fill-box;
+}
+
+/* 'animation-delay' needs to go AFTER 'animation' or it doesn't work! */
+
+#speech-dot-1 {
+    animation: contactAnimate 4s infinite;
+    animation-delay: 0.6s;
+    transform-origin: bottom right;
+    transform-box: fill-box;
+}
+
+#small-cog {
+    animation: cogRotate1 6s infinite;
+    /* animation-delay: 6s; */
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#medium-cog {
+    animation: cogRotate2 6s infinite;
+    /* animation-delay: 6s; */
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#big-cog {
+    animation: cogRotate1 6s infinite;
+    /* animation-delay: 6s; */
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes eyeMove {
+    12.5% {
+        transform: scaleY(0.2) scaleX(1.2);
+    }
+    25% {
+        transform: scaleY(1) scaleX(1);
+    }
+    100% {
+        transform: scaleY(1) scaleX(1);
+    }
+}
+
+@keyframes handMove {
+    6.25% {
+        transform: rotate(-15deg);
+    }
+    12.5% {
+        transform: rotate(0deg);
+    }
+    18.75% {
+        transform: rotate(-15deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes faceMove {
+    12.5% {
+        transform: rotate(10deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes heart {
+    8% {
+        transform: scale(1.14);
+    }
+    13% {
+        transform: scale(1);
+    }
+    21% {
+        transform: scale(1.2);
+        ;
+    }
+    28% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes contactAnimate {
+    4% {
+        transform: translateX(-30%);
+    }
+    12.5% {
+        transform: translateX(630%);
+    }
+    13% {
+        opacity: 1;
+    }
+    14% {
+        opacity: 0;
+    }
+    26% {
+        opacity: 0;
+    }
+    27% {
+        transform: translateX(-600%);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    /* Result of random trial and error, need to understand how it's working */
+    40% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes cogRotate1 {
+    5% {
+        transform: rotate(20deg);
+    }
+    25% {
+        transform: rotate(-140deg);
+    }
+    100% {
+        transform: rotate(-140deg);
+    }
+}
+
+@keyframes cogRotate2 {
+    5% {
+        transform: rotate(-20deg);
+    }
+    25% {
+        transform: rotate(140deg);
+    }
+    100% {
+        transform: rotate(140deg);
+    }
+}
