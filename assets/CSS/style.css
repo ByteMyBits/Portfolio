@@ -7,12 +7,11 @@
     --col1-min-width: 18%;
 }
 
-.html {
-    font-size: 10px;
-}
+.html {}
 
 * {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body {
@@ -79,19 +78,17 @@ nav {
 } */
 
 .hero__hello {
-    font-size: 60px;
+    font-size: 65px;
 }
 
-.hero__jack {
-    font-size: 120px;
-    word-spacing: -15px;
-}
-
-.hero__jack {
+.hero__jackOLD {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
     /* height and width make animation look nicer but destory the flow/formatting */
     /* height: 400px;
     width: 800px; */
-    /* background: rgb(220, 103, 103);
+    /* background: rgb(220, 103, 103);  
     background: radial-gradient(circle, rgba(220, 103, 103, 1) 10%, rgba(107, 107, 255, 1) 36%, rgba(114, 252, 142, 1) 70%, rgba(255, 216, 110, 1) 97%); */
     background: rgb(220, 103, 103);
     background: linear-gradient(60deg, rgba(220, 103, 103, 1) 10%, rgba(107, 107, 255, 1) 40%, rgba(114, 252, 142, 1) 70%, rgba(255, 216, 110, 1) 90%);
@@ -101,6 +98,32 @@ nav {
     font-weight: 600;
     letter-spacing: -5px;
     /* animation: rotate 40s infinite; */
+}
+
+.jack-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hero__jack {
+    padding-top: 30px;
+    /* height and width make animation look nicer but destory the flow/formatting */
+    /* height: 400px;
+    width: 800px; */
+    background: rgb(220, 103, 103);
+    background: radial-gradient(circle, rgba(220, 103, 103, 1) 10%, rgba(107, 107, 255, 1) 36%, rgba(114, 252, 142, 1) 70%, rgba(255, 216, 110, 1) 97%);
+    /* background: rgb(220, 103, 103);
+    background: linear-gradient(60deg, rgba(220, 103, 103, 1) 10%, rgba(107, 107, 255, 1) 40%, rgba(114, 252, 142, 1) 70%, rgba(255, 216, 110, 1) 90%); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    letter-spacing: -5px;
+    width: 650px;
+    text-align: center;
+    font-size: 160px;
+    /* word-spacing: -15px; */
+    animation: rotate 60s infinite;
 }
 
 .about-me {
@@ -186,7 +209,7 @@ p {
 }
 
 img {
-    /* tip: use pixels for border-radius, using % with rectangles looks scuffed */
+    /* tip: use pixels for border-radius, using % on rectangles looks terrible */
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -194,13 +217,17 @@ img {
     opacity: 80%;
 }
 
-/* the tilda " ~ " means it affects its sibling... hovering over img is affecting the label as well */
+/* the tilda " ~ " means it affects its sibling... i.e. hovering over img is affecting the label as well */
 
 img:hover, img:hover~.portfolio-label {
     opacity: 100%;
     border: solid 4px var(--royal-purple);
     transform: scale(1.02);
 }
+
+/* on a phone, when you click the portfolio images you can see the outline of  */
+
+/* the original label position before it's been moved...  */
 
 .portfolio-label {
     background-color: var(--royal-purple);
@@ -221,6 +248,8 @@ img:hover, img:hover~.portfolio-label {
     border-left: solid 4px var(--neon-green);
     display: flex;
     flex-wrap: wrap;
+    font-size: 32px;
+    justify-content: center;
 }
 
 .my-work__portfolio>a {
@@ -244,6 +273,13 @@ img:hover, img:hover~.portfolio-label {
     color: var(--neon-green);
     font-size: 48px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contact-me-animation {
+    align-self: center;
 }
 
 /* translate and transition times not working... */
@@ -274,8 +310,17 @@ img:hover, img:hover~.portfolio-label {
 /* for this to work either the gradient needs to wrap around smoothly, or be big enough to not notice the hard edges */
 
 @keyframes rotate {
-    50% {
+    25% {
         background-position: -800px 400px;
+    }
+    50% {
+        background-position: 0px 0px;
+    }
+    75% {
+        background-position: 800px -400px;
+    }
+    100% {
+        background-position: 0px 0px;
     }
 }
 
@@ -284,41 +329,46 @@ img:hover, img:hover~.portfolio-label {
 }
 
 #face {
-    animation: faceMove 4s infinite;
+    animation: faceMove 6s infinite;
     transform-origin: center bottom;
     transform-box: fill-box;
+    animation-delay: 1s;
 }
 
 #hand {
-    animation: handMove 4s infinite;
+    animation: handMove 6s infinite;
     transform-origin: bottom right;
     transform-box: fill-box;
+    animation-delay: 1s;
 }
 
 #eye {
-    animation: eyeMove 4s infinite;
+    animation: eyeMove 6s infinite;
     /* Without these two properties below, the transformation doesn't apply relative to itself */
     /* It applies somewhere else, (centre of the SVG possibly) so for example without these */
     /* the scale transform to make the eye wink also made it translate (move) */
     transform-origin: center;
     transform-box: fill-box;
+    animation-delay: 1s;
 }
 
 #heartpath {
     transform-origin: center;
     transform-box: fill-box;
     animation: heart 3s infinite;
+    animation-delay: 4s;
 }
 
 #speech-dot-3 {
     animation: contactAnimate 4s infinite;
     transform-origin: bottom right;
     transform-box: fill-box;
+    animation-delay: 4s;
 }
 
 #speech-dot-2 {
     animation: contactAnimate 4s infinite;
-    animation-delay: 0.3s;
+    animation-delay: 4.3s;
     transform-origin: bottom right;
     transform-box: fill-box;
 }
@@ -327,30 +377,33 @@ img:hover, img:hover~.portfolio-label {
 
 #speech-dot-1 {
     animation: contactAnimate 4s infinite;
-    animation-delay: 0.6s;
+    animation-delay: 4.6s;
     transform-origin: bottom right;
     transform-box: fill-box;
 }
 
 #small-cog {
-    animation: cogRotate1 6s infinite;
+    animation: cogRotate1 4s infinite;
     /* animation-delay: 6s; */
     transform-origin: center;
     transform-box: fill-box;
+    animation-delay: 4s;
 }
 
 #medium-cog {
-    animation: cogRotate2 6s infinite;
+    animation: cogRotate2 4s infinite;
     /* animation-delay: 6s; */
     transform-origin: center;
     transform-box: fill-box;
+    animation-delay: 4s;
 }
 
 #big-cog {
-    animation: cogRotate1 6s infinite;
+    animation: cogRotate1 4s infinite;
     /* animation-delay: 6s; */
     transform-origin: center;
     transform-box: fill-box;
+    animation-delay: 4s;
 }
 
 /* Media queries */
@@ -360,6 +413,9 @@ img:hover, img:hover~.portfolio-label {
 @media only screen and (max-width: 1350px) {
     .hero__jack {
         margin-top: 20px;
+        font-size: 140px;
+        width: 550px;
+        /* word-spacing: -10px; */
     }
     /* About me */
     .about-me {
@@ -402,6 +458,25 @@ img:hover, img:hover~.portfolio-label {
         border: none;
         padding: 0;
     }
+    .get-in-touch {
+        flex-direction: column;
+    }
+    .get-in-touch__header {
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 3px solid var(--neon-green);
+        font-size: 56px;
+    }
+    .get-in-touch__header svg, .get-in-touch__header h2 {
+        margin: 0 20px;
+        align-self: center;
+    }
+    .get-in-touch__nav {
+        border: none;
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 550px) {
@@ -409,8 +484,7 @@ img:hover, img:hover~.portfolio-label {
         margin: 20px;
     }
     header {
-        padding: 0 20px;
-        flex: 0
+        padding: 0 10px;
     }
     .logo {
         padding: 0 10px;
@@ -438,6 +512,8 @@ img:hover, img:hover~.portfolio-label {
     }
     .hero__jack {
         font-size: 80px;
+        width: 320px;
+        /* word-spacing: -5px; */
     }
     .about-me__header h2 {
         font-size: 34px;
@@ -472,17 +548,38 @@ img:hover, img:hover~.portfolio-label {
     .my-work__portfolio {
         /* padding: 0 5px; */
     }
+    /* why doesn't this affect the first flex item? */
     .portfolio-flex-item {
         height: 250px;
         padding: 8px;
         flex-basis: 100%;
     }
-    /* this seems very inefficient, must be a better way? */
+    /* have to do this because of above comment */
     .portfolio-flex-item:first-child {
-        height: 300px;
+        height: 250px;
         padding: 8px;
         flex-basis: 100%;
     }
+    .get-in-touch__header {
+        font-size: 34px;
+        align-self: center;
+        margin: 0 10px;
+    }
+    .get-in-touch__header svg {
+        height: 70px;
+        width: 70px;
+        margin: 0 15px;
+        line-height: 1.4;
+    }
+    .get-in-touch__nav {
+        margin: 25px 0;
+        /* this doesn't affect the ul/li, why? */
+        font-size: 320px;
+    }
+    .get-in-touch__nav li {
+        font-size: 16px;
+    }
+    /* this seems very inefficient, must be a better way? */
     img:hover, img:hover~.portfolio-label {
         opacity: 100%;
         border: solid 4px var(--royal-purple);
@@ -503,11 +600,15 @@ img:hover, img:hover~.portfolio-label {
     }
 }
 
+/* note to futureself, it would have been so much easier to use (calc) here so I don't have to */
+
+/* manually change each value when I want to shorten/extend an animation  */
+
 @keyframes eyeMove {
-    12.5% {
+    8.4% {
         transform: scaleY(0.2) scaleX(1.2);
     }
-    25% {
+    16.7% {
         transform: scaleY(1) scaleX(1);
     }
     100% {
@@ -516,25 +617,25 @@ img:hover, img:hover~.portfolio-label {
 }
 
 @keyframes handMove {
-    6.25% {
+    4.2% {
         transform: rotate(-15deg);
     }
-    12.5% {
+    8.4% {
         transform: rotate(0deg);
     }
-    18.75% {
+    12.6% {
         transform: rotate(-15deg);
     }
-    25% {
+    16.8% {
         transform: rotate(0deg);
     }
 }
 
 @keyframes faceMove {
-    12.5% {
+    8.4% {
         transform: rotate(10deg);
     }
-    25% {
+    16.7% {
         transform: rotate(0deg);
     }
     100% {
@@ -597,7 +698,7 @@ img:hover, img:hover~.portfolio-label {
     5% {
         transform: rotate(20deg);
     }
-    25% {
+    40% {
         transform: rotate(-140deg);
     }
     100% {
@@ -609,7 +710,7 @@ img:hover, img:hover~.portfolio-label {
     5% {
         transform: rotate(-20deg);
     }
-    25% {
+    40% {
         transform: rotate(140deg);
     }
     100% {
