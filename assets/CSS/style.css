@@ -685,7 +685,6 @@ img:hover, img:hover~.portfolio-label {
     30% {
         opacity: 1;
     }
-    /* Result of random trial and error, need to understand how it's working */
     40% {
         transform: translateX(0%);
     }
