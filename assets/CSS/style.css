@@ -215,13 +215,13 @@ img {
     height: 100%;
     object-fit: cover;
     opacity: 80%;
+    border: solid 4px var(--royal-purple);
 }
 
 /* the tilda " ~ " means it affects its sibling... i.e. hovering over img is affecting the label as well */
 
 img:hover, img:hover~.portfolio-label {
     opacity: 100%;
-    border: solid 4px var(--royal-purple);
     transform: scale(1.02);
 }
 
